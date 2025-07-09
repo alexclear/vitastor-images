@@ -22,5 +22,6 @@ jobs:
           image: gitinsky/vitastor-osd
           tag: 2.2.2
           tag_with_latest: true
+          build_file: Dockerfile.osd
           username: gitinsky
           password: ${{ secrets.DOCKERHUB_TOKEN }}

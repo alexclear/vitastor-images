@@ -25,3 +25,15 @@ jobs:
           build_file: Dockerfile.osd
           username: gitinsky
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and Push Vitastor Monitor image version 2.2.2 with Kaniko
+        uses: https://code.thetadev.de/actions/kaniko@v1
+        with:
+          image: vitastor/vitastor-monitor
+          registry: harbor-pve1.spbnix.local
+          extra_args: "--skip-tls-verify"
+          tag: 2.2.2
+          tag_with_latest: false
+          build_file: Dockerfile.monitor
+          username: "robot$vitastor+vitastorrobot"
+          password: ${{ secrets.HARBOR_TOKEN }}

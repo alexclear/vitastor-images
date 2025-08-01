@@ -16,25 +16,25 @@ jobs:
         id: vars
         run: echo "SHORT_SHA=$(git rev-parse --short=7 HEAD)" >> $GITHUB_ENV
 
-      - name: Build and Push Vitastor OSD image version 2.2.2 with Kaniko
+      - name: Build and Push Vitastor OSD image version 2.2.3 with Kaniko
         uses: https://code.thetadev.de/actions/kaniko@v1
         with:
           image: vitastor/vitastor-osd
           registry: harbor-pve1.spbnix.local
           extra_args: "--skip-tls-verify"
-          tag: 2.2.2
+          tag: 2.2.3
           tag_with_latest: false
           build_file: Dockerfile.osd
           username: "robot$vitastor+vitastorrobot"
           password: ${{ secrets.HARBOR_TOKEN }}
 
-      - name: Build and Push Vitastor Monitor image version 2.2.2 with Kaniko
+      - name: Build and Push Vitastor Monitor image version 2.2.3 with Kaniko
         uses: https://code.thetadev.de/actions/kaniko@v1
         with:
           image: vitastor/vitastor-monitor
           registry: harbor-pve1.spbnix.local
           extra_args: "--skip-tls-verify"
-          tag: 2.2.2
+          tag: 2.2.3
           tag_with_latest: false
           build_file: Dockerfile.monitor
           username: "robot$vitastor+vitastorrobot"
